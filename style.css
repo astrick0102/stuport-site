@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f8fc;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d47a1;
+  color: white;
+  padding: 10px 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 40px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.logout {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+aside {
+  background-color: #e3f2fd;
+  width: 250px;
+  min-height: 100vh;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+aside a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #0d47a1;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+aside a:hover,
+aside a.active {
+  background-color: #bbdefb;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.info-card {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.status {
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-pic-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.edit-photo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #1976d2;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+@media (max-width: 768px) {
+  aside {
+    position: absolute;
+    left: 0;
+    top: 60px;
+    height: calc(100% - 60px);
+    transform: translateX(-100%);
+    z-index: 999;
+  }
+
+  aside.active {
+    transform: translateX(0);
+  }
+}
