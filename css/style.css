@@ -1,0 +1,320 @@
+/* ========================================================
+   StuPort - style.css
+   Modern, responsive, accessible styles for StuPort (student portal)
+   Customize colors inside :root variables
+   ======================================================== */
+
+/* ---------- Theme variables (easy to customize) ---------- */
+:root{
+  /* Colors */
+  --bg: #f6f7fb;           /* page background */
+  --surface: #ffffff;      /* cards, panels */
+  --primary: #0b63d6;      /* primary brand color */
+  --accent: #0ea5a4;       /* secondary/accent color */
+  --text: #0f1724;         /* main text */
+  --muted: #6b7280;        /* secondary text */
+  --danger: #ef4444;       /* error/important */
+
+  /* Sizing */
+  --max-width: 1200px;
+  --container-pad: 1rem;
+  --radius: 12px;
+  --card-radius: 10px;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+
+  /* Typography */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-base-size: 16px;
+  --line-height: 1.6;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(16,24,40,0.05);
+  --shadow-md: 0 4px 18px rgba(15,23,42,0.08);
+  --shadow-lg: 0 10px 30px rgba(15,23,42,0.12);
+}
+
+/* ---------- Global reset & base ---------- */
+* { box-sizing: border-box; }
+html { font-size: var(--font-base-size); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
+  line-height: var(--line-height);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ---------- Layout helpers ---------- */
+.container{
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+/* Simple utility classes */
+.text-muted { color: var(--muted); }
+.lead { font-size: 1.125rem; color: var(--muted); margin-top: 0.25rem; }
+
+/* ---------- Header / Navigation ---------- */
+.header {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+  backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+  padding: 0.75rem var(--container-pad);
+}
+.brand {
+  display:flex;
+  align-items:center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+}
+.brand h1 {
+  margin:0;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+.nav {
+  display:flex;
+  gap: 0.75rem;
+  align-items:center;
+}
+.nav a {
+  text-decoration:none;
+  color: var(--text);
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.nav a:hover,
+.nav a:focus {
+  background: rgba(11,99,214,0.06);
+  outline: none;
+}
+.nav .active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Mobile nav toggle (hidden by default — no JS here; style only) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1rem;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: var(--space-xl) 0;
+}
+.hero-grid {
+  display:grid;
+  gap: var(--space-lg);
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+.hero-title {
+  font-size: 1.75rem;
+  line-height: 1.05;
+  margin: 0 0 var(--space-sm) 0;
+}
+.hero-sub {
+  margin: 0 0 var(--space-md) 0;
+  color: var(--muted);
+}
+.hero-cta {
+  display:flex;
+  gap: 0.75rem;
+  flex-wrap:wrap;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-grid;
+  place-items:center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  text-decoration:none;
+  font-weight:600;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:focus { outline: 3px solid rgba(11,99,214,0.15); outline-offset: 2px; }
+.btn-primary{
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(11,99,214,0.12);
+}
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-ghost{
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(15,23,42,0.06);
+}
+.btn-small { padding: 0.35rem 0.6rem; font-size: 0.95rem; }
+
+/* ---------- Features / Cards / Grid ---------- */
+.grid {
+  display:grid;
+  gap: var(--space-md);
+}
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+.card {
+  background: var(--surface);
+  border-radius: var(--card-radius);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+.card h3 { margin-top: 0; margin-bottom: 0.5rem; }
+.card p { margin: 0; color: var(--muted); }
+
+/* Feature list with icons (icons would be inline SVGs or text) */
+.features {
+  display:grid;
+  gap: var(--space-md);
+}
+.feature-item {
+  display:flex;
+  gap: 0.75rem;
+  align-items:flex-start;
+}
+
+/* ---------- Student section / dashboard helpers ---------- */
+.panel-row {
+  display:flex;
+  gap: var(--space-md);
+  flex-direction: column;
+}
+.sidebar {
+  background: var(--surface);
+  padding: var(--space-md);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-sm);
+}
+.main {
+  background: transparent;
+}
+
+/* Notices */
+.notice {
+  border-left: 4px solid var(--accent);
+  padding: 0.75rem;
+  background: linear-gradient(90deg, rgba(14,165,164,0.03), transparent);
+  border-radius:8px;
+  color: var(--text);
+}
+
+/* Tables (for timetables / grade lists) */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.table th, .table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(15,23,42,0.04);
+}
+.table th { background: rgba(15,23,42,0.02); font-weight:600; color: var(--muted); }
+.table tr:last-child td { border-bottom: none; }
+
+/* Search / input basics (simple HTML inputs) */
+.input, input[type="text"], input[type="search"], textarea, select {
+  width:100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(15,23,42,0.06);
+  background: #fff;
+  font: inherit;
+}
+.input:focus, input:focus, textarea:focus, select:focus {
+  outline: 3px solid rgba(14,165,164,0.12);
+  border-color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg) 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(15,23,42,0.04);
+}
+.site-footer .footer-inner {
+  display:flex;
+  gap: var(--space-md);
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+/* ---------- Misc / small helpers ---------- */
+.kicker { font-size: 0.85rem; font-weight:600; color: var(--accent); text-transform:uppercase; letter-spacing:0.08em; }
+.badge {
+  display:inline-block;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  background: rgba(11,99,214,0.08);
+  color: var(--primary);
+  font-weight:700;
+  font-size: 0.85rem;
+}
+
+/* accessibility: visible focus for keyboard users */
+:focus { outline-offset: 3px; }
+
+/* ---------- Responsive breakpoints ---------- */
+@media (min-width: 640px) {
+  .hero-title { font-size: 2rem; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .panel-row { flex-direction: row; }
+}
+
+@media (min-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr 480px; }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .nav-toggle { display: none; }
+  .nav { gap: 1rem; }
+}
+
+@media (min-width: 1200px) {
+  .hero { padding: calc(var(--space-xl) + 1rem) 0; }
+  .hero-title { font-size: 2.6rem; }
+  .container { padding-left: 2rem; padding-right: 2rem; }
+}
+
+/* ---------- Small print: how to adapt ---------- */
+/*
+ - Change colors quickly in :root variables at top.
+ - To make primary darker/lighter, change --primary and adjust --accent accordingly.
+ - To reduce radius: lower --radius and --card-radius.
+ - Add a "dark mode" ruleset by overriding variables under a .dark selector or @media(prefers-color-scheme: dark).
+ - If you add a top navigation with many links, consider collapsing into a hamburger for small screens (requires small JS).
+*/

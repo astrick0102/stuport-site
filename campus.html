@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StuPort | Indian Colleges</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner container">
+        <a href="index.html" class="brand">
+            <h1>StuPort</h1>
+        </a>
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="campus.html" class="active">Colleges</a>
+            <a href="resources.html">Resources</a>
+            <a href="notices.html">Notices</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section>
+        <h2>Select a College</h2>
+
+        <select id="collegeSelect" class="input">
+            <option value="">-- Choose a College --</option>
+            <option value="iitd">IIT Delhi</option>
+            <option value="iitb">IIT Bombay</option>
+            <option value="nittrichy">NIT Trichy</option>
+            <option value="du">University of Delhi</option>
+            <option value="dr_ss_ghandhy">Dr. S. & S.S. Ghandhy Government Engineering College, Surat</option>
+        </select>
+    </section>
+
+    <section id="collegeInfo" style="display:none;">
+        <div class="card">
+            <h2 id="collegeName"></h2>
+            <p id="collegeOverview"></p>
+        </div>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3>Departments</h3>
+                <ul id="departments"></ul>
+            </div>
+
+            <div class="card">
+                <h3>Facilities</h3>
+                <ul id="facilities"></ul>
+            </div>
+
+            <div class="card">
+                <h3>Location</h3>
+                <p id="location"></p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+                <p class="text-muted">
+                    © 2026 StuPort. All rights reserved.
+    </div>
+</footer>
+
+<script src="js/campus.js"></script>
+</body>
+</html>
